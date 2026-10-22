@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guy & Co. | Web Engineering & Custom Software Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans for clean typography & Playfair Display for editorial brand accents -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                green: '#1B4332',     /* Primary signature green from logo */
+                greenDark: '#0D231A', /* Deep forest hover state */
+                greenLight: '#D8F3DC',/* Soft accent tint */
+                greenMuted: '#2D6A4F',/* Secondary forest green */
+                obsidian: '#111827',  /* Crisp dark text */
+                surface: '#F9FAFB',   /* Section background */
+                border: '#E5E7EB',    /* Clean subtle dividers */
+              }
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+              serif: ['"Playfair Display"', 'serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom fine-grained crisp styles avoiding AI aesthetics */
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        color: #111827;
+        background-color: #FFFFFF;
+        -webkit-font-smoothing: antialiased;
+      }
+      .brand-title {
+        font-family: 'Playfair Display', serif;
+      }
+      /* Custom crisp subtle shadow for cards */
+      .card-subtle {
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+      }
+      .card-subtle:hover {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+      }
+    </style>
+</head>
+<body class="bg-white text-brand-obsidian antialiased selection:bg-brand-greenLight selection:text-brand-greenDark">
+
+    <!-- MAIN NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <span class="brand-title text-3xl font-bold tracking-tight text-brand-green group-hover:text-brand-greenDark transition-colors">
+                    Guy & Co.
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-700">
+                <a href="#demos" class="hover:text-brand-green transition-colors">Interactive Demos</a>
+                <a href="#services" class="hover:text-brand-green transition-colors">Capabilities</a>
+                <a href="#estimator" class="hover:text-brand-green transition-colors">Project Estimator</a>
+                <a href="#about" class="hover:text-brand-green transition-colors">About Us</a>
+            </nav>
+
+            <!-- CTA Action Button -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/255623534100?text=Habari%20Guy%20%26%20Co.,%20I%20would%20like%20to%20discuss%20a%20web%20engineering%20project%20for%20my%20business." 
+                   target="_blank" 
+                   rel="noopener"
+                   class="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 rounded-md bg-brand-green text-white text-sm font-semibold hover:bg-brand-greenDark transition-all duration-150 shadow-sm">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                    </svg>
+                    <span>Direct WhatsApp Inquiry</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <!-- Location badge -->
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 text-xs font-semibold text-gray-700 mb-6">
+                    <svg class="w-3.5 h-3.5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    Dar es Salaam, Tanzania
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-obsidian leading-[1.12] mb-6">
+                    Digital Infrastructure Built for Growing Tanzanian Enterprises.
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-lg sm:text-xl text-gray-600 leading-relaxed font-normal mb-8 max-w-2xl">
+                    We design and build bespoke web platforms, high-converting corporate portals, and custom internal operating software tailored to the operational realities of businesses across Dar es Salaam.
+                </p>
+
+                <!-- Action CTA Cluster -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                    <a href="#demos" class="inline-flex items-center justify-center px-6 py-3.5 rounded-md bg-brand-green text-white text-base font-semibold hover:bg-brand-greenDark transition-all duration-150 shadow-sm">
+                        <span>Explore Industry Demos</span>
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </a>
+                    <a href="#estimator" class="inline-flex items-center justify-center px-6 py-3.5 rounded-md bg-brand-surface border border-brand-border text-brand-obsidian text-base font-semibold hover:bg-gray-100 transition-all duration-150">
+                        Calculate Build Scope
+                    </a>
+                </div>
+
+                <!-- Contact Meta -->
+                <div class="mt-8 pt-8 border-t border-brand-border flex flex-wrap items-center gap-y-2 gap-x-6 text-sm text-gray-500">
+                    <div class="flex items-center gap-2">
+                        <span class="font-medium text-gray-700">Direct Office Phone:</span>
+                        <a href="tel:+255623534100" class="hover:text-brand-green underline underline-offset-2">+255 623 534 100</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-medium text-gray-700">Official Email:</span>
+                        <a href="mailto:guyfei208@gmail.com" class="hover:text-brand-green underline underline-offset-2">guyfei208@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Strip / Industries Served -->
+        <div class="mt-20 border-y border-brand-border bg-brand-surface py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 text-center mb-6">
+                    Engineering Specialized Web Systems Across Key Tanzanian Sectors
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center text-sm font-semibold text-gray-600">
+                    <div class="flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8"/></svg>
+                        Clearing & Freight
+                    </div>
+                    <div class="flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        Chinese Distributors
+                    </div>
+                    <div class="flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+                        Academies & Schools
+                    </div>
+                    <div class="flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        Medical Clinics
+                    </div>
+                    <div class="col-span-2 md:col-span-1 flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                        Event Venues & Hospitality
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: LIVE INTERACTIVE DEMO MATRIX -->
+    <section id="demos" class="py-20 bg-white border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs font-bold text-brand-green tracking-wider uppercase">Interactive Demonstration</span>
+                    <h2 class="text-3xl font-bold tracking-tight text-brand-obsidian mt-1">
+                        Tailored Web Architecture in Action
+                    </h2>
+                </div>
+                <p class="text-gray-600 text-sm max-w-md mt-4 md:mt-0">
+                    Select an industry below to interact with custom functional UI modules designed specifically for Tanzanian commercial requirements.
+                </p>
+            </div>
+
+            <!-- TAB SWITCHER -->
+            <div class="flex flex-wrap gap-2 mb-8 border-b border-brand-border pb-4">
+                <button onclick="switchTab('clearing')" id="tab-clearing" class="tab-btn px-4 py-2.5 rounded-md text-sm font-semibold border bg-brand-green text-white border-brand-green transition-all">
+                    Logistics & Freight Clearing
+                </button>
+                <button onclick="switchTab('chinese')" id="tab-chinese" class="tab-btn px-4 py-2.5 rounded-md text-sm font-semibold border bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100 transition-all">
+                    Industrial Supplier & Wholesale
+                </button>
+                <button onclick="switchTab('academy')" id="tab-academy" class="tab-btn px-4 py-2.5 rounded-md text-sm font-semibold border bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100 transition-all">
+                    Vocational Academy / Driving School
+                </button>
+                <button onclick="switchTab('venue')" id="tab-venue" class="tab-btn px-4 py-2.5 rounded-md text-sm font-semibold border bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100 transition-all">
+                    Event Venue & Garden
+                </button>
+            </div>
+
+            <!-- DEMO CONTENT CONTAINERS -->
+
+            <!-- DEMO 1: CLEARING & FREIGHT -->
+            <div id="demo-clearing" class="demo-panel block">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-flex items-center gap-2 text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200">
+                            <span>TASAC & TRA Compliance Ready</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-obsidian">Port Clearing & Freight Forwarding Portal</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Allows international importers shipping through Dar es Salaam Port to quickly calculate clearance costs, submit bills of lading, and request verified quotes directly to your WhatsApp Business desk.
+                        </p>
+
+                        <div class="space-y-3 pt-2">
+                            <div class="flex items-start gap-3 text-sm text-gray-700">
+                                <svg class="w-5 h-5 text-brand-green shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span><strong>Instant Freight Calculator:</strong> Streamlines incoming cargo inquiries.</span>
+                            </div>
+                            <div class="flex items-start gap-3 text-sm text-gray-700">
+                                <svg class="w-5 h-5 text-brand-green shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span><strong>Downloadable Company PDF Profile:</strong> Perfect for corporate and government tenders.</span>
+                            </div>
+                            <div class="flex items-start gap-3 text-sm text-gray-700">
+                                <svg class="w-5 h-5 text-brand-green shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span><strong>Direct Tracking Integration:</strong> Keeps clients informed without manual phone calls.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Mockup Card -->
+                    <div class="lg:col-span-7 bg-brand-surface rounded-xl border border-brand-border p-6 card-subtle">
+                        <div class="bg-white rounded-lg border border-brand-border p-5">
+                            <div class="flex items-center justify-between border-b border-gray-100 pb-4 mb-4">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                                    <span class="ml-2 text-xs text-gray-400 font-mono">mfl-clearing.co.tz/quote</span>
+                                </div>
+                                <span class="text-xs font-semibold text-gray-500">Live Interactive Mockup</span>
+                            </div>
+
+                            <!-- Calculator Form Mockup -->
+                            <h4 class="font-bold text-base text-gray-900 mb-1">Estimate Clearance Quotation</h4>
+                            <p class="text-xs text-gray-500 mb-4">Dar es Salaam Port (Bandari) Cargo Inquiry</p>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-700 mb-1">Cargo Type</label>
+                                    <select id="cargo-type" onchange="calculateFreight()" class="w-full text-sm border border-gray-300 rounded-md p-2.5 bg-white focus:ring-2 focus:ring-brand-green focus:border-brand-green">
+                                        <option value="20ft">20ft Container (FCL)</option>
+                                        <option value="40ft">40ft High Cube Container</option>
+                                        <option value="lcl">Loose Cargo / LCL</option>
+                                        <option value="vehicle">Motor Vehicle / Rolling Unit</option>
+                                    </select>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-gray-700 mb-1">Destination</label>
+                                        <select id="cargo-dest" onchange="calculateFreight()" class="w-full text-sm border border-gray-300 rounded-md p-2.5 bg-white">
+                                            <option value="tz">Dar es Salaam Local</option>
+                                            <option value="zambia">Transit: Zambia (Lusaka)</option>
+                                            <option value="drc">Transit: DRC (Lumbumbashi)</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-gray-700 mb-1">Doc Verification</label>
+                                        <div class="text-xs text-emerald-700 font-medium bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                                            TASAC Clearance Ready
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gray-50 p-3 rounded-md border border-gray-200 flex items-center justify-between">
+                                    <div>
+                                        <span class="block text-xs text-gray-500">Estimated Agency Fee</span>
+                                        <span id="freight-price" class="text-lg font-bold text-brand-green">$350 USD / TZS 945,000</span>
+                                    </div>
+                                    <button onclick="sendFreighWhatsApp()" class="px-3.5 py-2 rounded bg-emerald-700 text-white text-xs font-bold hover:bg-emerald-800 transition-colors flex items-center gap-1.5">
+                                        <span>Submit via WhatsApp</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEMO 2: CHINESE INDUSTRIAL SUPPLIER -->
+            <div id="demo-chinese" class="demo-panel hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-flex items-center gap-2 text-xs font-bold text-blue-800 bg-blue-50 px-2.5 py-1 rounded border border-blue-200">
+                            <span>Bilingual: English & Swahili</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-obsidian">Industrial Supplier Product Catalog</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Designed for Chinese factories, equipment suppliers, and hardware distributors in Dar es Salaam. Eliminates sending endless PDF files manually by letting local buyers browse machinery specs online.
+                        </p>
+
+                        <div class="space-y-3 pt-2">
+                            <div class="flex items-start gap-3 text-sm text-gray-700">
+                                <svg class="w-5 h-5 text-brand-green shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span><strong>Instant Catalog Browsing:</strong> High resolution product specs & warehouse location map.</span>
+                            </div>
+                            <div class="flex items-start gap-3 text-sm text-gray-700">
+                                <svg class="w-5 h-5 text-brand-green shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                <span><strong>Direct Inquiry Basket:</strong> Buyers construct product lists and send one-click WhatsApp orders.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Mockup Card -->
+                    <div class="lg:col-span-7 bg-brand-surface rounded-xl border border-brand-border p-6 card-subtle">
+                        <div class="bg-white rounded-lg border border-brand-border p-5">
+                            <div class="flex items-center justify-between border-b border-gray-100 pb-3 mb-4">
+                                <span class="font-bold text-sm text-gray-900">Jomax Machinery Tanzania</span>
+                                <span class="text-xs bg-gray-100 px-2 py-1 rounded font-medium">Kariakoo / Lindi St Warehouse</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3 mb-4">
+                                <div class="border border-gray-200 p-3 rounded-md bg-gray-50">
+                                    <div class="font-bold text-xs text-gray-800">Heavy Duty Block Machine</div>
+                                    <div class="text-xs text-gray-500 mt-1">Cap: 4,000 blocks/day</div>
+                                    <div class="text-sm font-semibold text-brand-green mt-2">TZS 18,500,000</div>
+                                    <button onclick="addCatalogItem('Block Machine', 'TZS 18,500,000')" class="mt-2 w-full py-1 text-xs font-semibold bg-white border border-gray-300 rounded hover:bg-gray-50">
+                                        + Add to Inquiry List
+                                    </button>
+                                </div>
+                                <div class="border border-gray-200 p-3 rounded-md bg-gray-50">
+                                    <div class="font-bold text-xs text-gray-800">50KW Industrial Diesel Generator</div>
+                                    <div class="text-xs text-gray-500 mt-1">3-Phase Silent Type</div>
+                                    <div class="text-sm font-semibold text-brand-green mt-2">TZS 24,000,000</div>
+                                    <button onclick="addCatalogItem('50KW Generator', 'TZS 24,000,000')" class="mt-2 w-full py-1 text-xs font-semibold bg-white border border-gray-300 rounded hover:bg-gray-50">
+                                        + Add to Inquiry List
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="bg-emerald-50 p-3 rounded border border-emerald-200 flex items-center justify-between text-xs">
+                                <div>
+                                    <span class="font-bold text-emerald-900">Selected Items:</span>
+                                    <span id="catalog-count" class="ml-1 text-emerald-700">0 Items Selected</span>
+                                </div>
+                                <button onclick="sendCatalogWhatsApp()" class="bg-brand-green text-white px-3 py-1.5 rounded font-bold hover:bg-brand-greenDark">
+                                    Send Wholesale Inquiry
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEMO 3: VOCATIONAL ACADEMY -->
+            <div id="demo-academy" class="demo-panel hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-flex items-center gap-2 text-xs font-bold text-purple-800 bg-purple-50 px-2.5 py-1 rounded border border-purple-200">
+                            <span>Automated Admissions</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-obsidian">Driving School & Vocational Portal</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Saves administrative reception staff hours by presenting course schedules, tuition fees, and registration requirements online with direct digital registration.
+                        </p>
+                    </div>
+
+                    <!-- Interactive Mockup Card -->
+                    <div class="lg:col-span-7 bg-brand-surface rounded-xl border border-brand-border p-6 card-subtle">
+                        <div class="bg-white rounded-lg border border-brand-border p-5">
+                            <div class="font-bold text-base text-gray-900 mb-2">Kimara VTC Driving School</div>
+                            <p class="text-xs text-gray-500 mb-4">Student Online Admission Form</p>
+
+                            <div class="space-y-3 text-xs">
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-1">Select Training Course</label>
+                                    <select id="course-select" class="w-full p-2 border border-gray-300 rounded">
+                                        <option value="Class A & B (Manual & Auto) - TZS 250,000">Class A & B (Manual & Auto) - TZS 250,000 (3 Weeks)</option>
+                                        <option value="Class C (Heavy Commercial) - TZS 400,000">Class C (Heavy Commercial) - TZS 400,000 (4 Weeks)</option>
+                                        <option value="VIP Refreshers Course - TZS 180,000">VIP Refreshers Course - TZS 180,000 (1 Week)</option>
+                                    </select>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-1">Campus Branch</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded">
+                                            <option>Kimara Matangini Branch</option>
+                                            <option>Mbezi Beach Branch</option>
+                                            <option>Magomeni Branch</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-1">Preferred Timing</label>
+                                        <select class="w-full p-2 border border-gray-300 rounded">
+                                            <option>Morning (08:00 - 10:00 AM)</option>
+                                            <option>Evening (04:00 - 06:00 PM)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button onclick="sendAcademyRegistration()" class="w-full py-2 bg-brand-green text-white font-bold rounded hover:bg-brand-greenDark mt-2">
+                                    Apply for Admission via WhatsApp
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEMO 4: EVENT VENUE -->
+            <div id="demo-venue" class="demo-panel hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-flex items-center gap-2 text-xs font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded border border-amber-200">
+                            <span>Direct Hospitality Bookings</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-obsidian">Event Venue & Garden Showcase</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Allows clients planning corporate conferences or weekend weddings in Dar es Salaam to check open dates and request package pricing directly.
+                        </p>
+                    </div>
+
+                    <!-- Interactive Mockup Card -->
+                    <div class="lg:col-span-7 bg-brand-surface rounded-xl border border-brand-border p-6 card-subtle">
+                        <div class="bg-white rounded-lg border border-brand-border p-5">
+                            <div class="font-bold text-base text-gray-900 mb-1">Elsa Gardenia Grounds</div>
+                            <p class="text-xs text-gray-500 mb-4">Date Availability & Grounds Booking Inquiry</p>
+
+                            <div class="space-y-3 text-xs">
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-1">Event Type</label>
+                                    <select id="venue-event" class="w-full p-2 border border-gray-300 rounded">
+                                        <option value="Wedding Reception">Wedding Reception (Up to 500 Guests)</option>
+                                        <option value="Corporate Retreat / Gala">Corporate Retreat / Gala</option>
+                                        <option value="Birthday / Small Gathering">Private Family Gathering</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-1">Target Date</label>
+                                    <input type="date" id="venue-date" value="2026-11-14" class="w-full p-2 border border-gray-300 rounded">
+                                </div>
+                                <button onclick="sendVenueWhatsApp()" class="w-full py-2 bg-brand-green text-white font-bold rounded hover:bg-brand-greenDark">
+                                    Check Date & Request Pricing Package
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: CORE CAPABILITIES -->
+    <section id="services" class="py-20 bg-brand-surface border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mb-14">
+                <span class="text-xs font-bold text-brand-green tracking-wider uppercase">Engineering Capabilities</span>
+                <h2 class="text-3xl font-bold tracking-tight text-brand-obsidian mt-1">
+                    Complete Software & Web Development Services
+                </h2>
+                <p class="text-gray-600 text-sm mt-3">
+                    We do not use generic page builders or bloated templates. Every system is engineered cleanly from the ground up for performance, security, and long-term durability.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Capability Card 1 -->
+                <div class="bg-white p-6 rounded-xl border border-brand-border card-subtle flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-brand-greenLight text-brand-green flex items-center justify-center font-bold mb-5">
+                            01
+                        </div>
+                        <h3 class="font-bold text-lg text-brand-obsidian mb-2">Corporate Web Platforms</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Custom web platforms built with fast loading speeds, mobile-first design, clean SEO, custom domain setup, and high-converting contact funnels.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-100 text-xs text-brand-green font-semibold">
+                        Fast & Mobile Responsive
+                    </div>
+                </div>
+
+                <!-- Capability Card 2 -->
+                <div class="bg-white p-6 rounded-xl border border-brand-border card-subtle flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-brand-greenLight text-brand-green flex items-center justify-center font-bold mb-5">
+                            02
+                        </div>
+                        <h3 class="font-bold text-lg text-brand-obsidian mb-2">Internal Operating Systems</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Bespoke ERPs, stock tracking dashboards, internal employee portals, and job scheduling tools built specifically for your internal workflow.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-100 text-xs text-brand-green font-semibold">
+                        Custom ERP & Admin Dashboards
+                    </div>
+                </div>
+
+                <!-- Capability Card 3 -->
+                <div class="bg-white p-6 rounded-xl border border-brand-border card-subtle flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-brand-greenLight text-brand-green flex items-center justify-center font-bold mb-5">
+                            03
+                        </div>
+                        <h3 class="font-bold text-lg text-brand-obsidian mb-2">Custom Web Applications</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Full-stack web software, client portals, quotation calculators, and automated document generation tools for corporate operations.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-100 text-xs text-brand-green font-semibold">
+                        Tailored Software Logic
+                    </div>
+                </div>
+
+                <!-- Capability Card 4 -->
+                <div class="bg-white p-6 rounded-xl border border-brand-border card-subtle flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-brand-greenLight text-brand-green flex items-center justify-center font-bold mb-5">
+                            04
+                        </div>
+                        <h3 class="font-bold text-lg text-brand-obsidian mb-2">WhatsApp & API Integrations</h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Connect your web portal directly to WhatsApp Business, SMS dispatch systems, or TRA/TASAC compliance workflows automatically.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-100 text-xs text-brand-green font-semibold">
+                        Automated Communications
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: INTERACTIVE ESTIMATOR -->
+    <section id="estimator" class="py-20 bg-white border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <span class="text-xs font-bold text-brand-green tracking-wider uppercase">Transparent Planning</span>
+                <h2 class="text-3xl font-bold tracking-tight text-brand-obsidian mt-1">
+                    Project Scope & Timeline Estimator
+                </h2>
+                <p class="text-gray-600 text-sm mt-2">
+                    Select your requirements below to receive an instant timeline estimate and project scope breakdown.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-brand-surface border border-brand-border rounded-xl p-6 md:p-8 card-subtle">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Options Selection -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">1. Select Industry Type</label>
+                            <select id="est-industry" onchange="recalculateEstimate()" class="w-full text-sm border border-gray-300 rounded-md p-3 bg-white">
+                                <option value="clearing">Logistics / Clearing & Forwarding</option>
+                                <option value="chinese">Industrial Manufacturer / Wholesale</option>
+                                <option value="academy">Academy / Driving School</option>
+                                <option value="hospitality">Event Venue / Boutique Hotel</option>
+                                <option value="corporate">Professional Services / Law Firm</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-2">2. Required Module Features</label>
+                            <div class="space-y-2 text-sm text-gray-700">
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="checkbox" id="feat-whatsapp" checked onchange="recalculateEstimate()" class="rounded text-brand-green focus:ring-brand-green">
+                                    <span>WhatsApp Direct Quote Integration</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="checkbox" id="feat-catalog" onchange="recalculateEstimate()" class="rounded text-brand-green focus:ring-brand-green">
+                                    <span>Interactive Product Catalog / Fee Schedule</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="checkbox" id="feat-domain" checked onchange="recalculateEstimate()" class="rounded text-brand-green focus:ring-brand-green">
+                                    <span>Custom Domain (.co.tz or .com) + Corporate Email</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer">
+                                    <input type="checkbox" id="feat-portal" onchange="recalculateEstimate()" class="rounded text-brand-green focus:ring-brand-green">
+                                    <span>Internal Admin / Staff Operating Portal</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Output Breakdown -->
+                    <div class="bg-white p-6 rounded-lg border border-brand-border flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Estimated Delivery</span>
+                            <div id="est-time" class="text-3xl font-bold text-brand-green mt-1">5 to 7 Business Days</div>
+                            
+                            <div class="mt-6 space-y-2 border-t border-gray-100 pt-4 text-xs text-gray-600">
+                                <div class="flex justify-between">
+                                    <span>Architecture & Design:</span>
+                                    <span class="font-semibold text-gray-900">Included</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Mobile Optimization:</span>
+                                    <span class="font-semibold text-gray-900">Included</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Technical Support:</span>
+                                    <span class="font-semibold text-gray-900">30 Days Post Launch</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="sendEstimateWhatsApp()" class="mt-6 w-full py-3 px-4 bg-brand-green hover:bg-brand-greenDark text-white text-sm font-bold rounded-md transition-colors flex items-center justify-center gap-2">
+                            <span>Send Estimated Scope to WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT & FOOTER SECTION -->
+    <footer id="about" class="bg-brand-surface pt-16 pb-12 border-t border-brand-border text-xs text-gray-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-brand-border">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <span class="brand-title text-3xl font-bold text-brand-green block">Guy & Co.</span>
+                    <p class="text-gray-600 text-sm leading-relaxed max-w-sm">
+                        Engineering custom web portals, corporate applications, and internal operating systems for enterprises across Dar es Salaam, Tanzania.
+                    </p>
+                    <div class="text-xs text-gray-500 pt-2">
+                        <p class="font-semibold text-gray-700">Office Location:</p>
+                        <p>Kisutu District, Samora Avenue / Jamhuri St Area</p>
+                        <p>Dar es Salaam, Tanzania</p>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 space-y-3">
+                    <span class="font-bold text-sm text-gray-900 block">Contact Information</span>
+                    <p>
+                        <span class="text-gray-500 block">Direct Phone & WhatsApp:</span>
+                        <a href="tel:+255623534100" class="font-semibold text-brand-green hover:underline">+255 623 534 100</a>
+                    </p>
+                    <p>
+                        <span class="text-gray-500 block">Official Email Address:</span>
+                        <a href="mailto:guyfei208@gmail.com" class="font-semibold text-brand-green hover:underline">guyfei208@gmail.com</a>
+                    </p>
+                </div>
+
+                <div class="md:col-span-4 space-y-3">
+                    <span class="font-bold text-sm text-gray-900 block">Operating Hours</span>
+                    <p class="text-gray-600">Monday – Friday: 08:00 AM – 06:00 PM (EAT)</p>
+                    <p class="text-gray-600">Saturday: 09:00 AM – 01:00 PM</p>
+                    <div class="pt-2">
+                        <a href="https://wa.me/255623534100" target="_blank" class="inline-flex items-center gap-2 font-bold text-brand-green hover:underline">
+                            <span>Open WhatsApp Consultation Desk</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>&copy; 2026 Guy & Co. All rights reserved. Registered Web & Software Engineering Practice in Tanzania.</p>
+                <div class="flex gap-4">
+                    <a href="#demos" class="hover:text-brand-green">Demos</a>
+                    <a href="#services" class="hover:text-brand-green">Capabilities</a>
+                    <a href="#estimator" class="hover:text-brand-green">Estimator</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Tab Switching Functionality
+        function switchTab(tabId) {
+            // Hide all demo panels
+            document.querySelectorAll('.demo-panel').forEach(panel => {
+                panel.classList.add('hidden');
+                panel.classList.remove('block');
+            });
+
+            // Reset tab button styles
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-green', 'text-white', 'border-brand-green');
+                btn.classList.add('bg-gray-50', 'text-gray-700', 'border-gray-200');
+            });
+
+            // Show selected panel
+            const activePanel = document.getElementById('demo-' + tabId);
+            if (activePanel) {
+                activePanel.classList.remove('hidden');
+                activePanel.classList.add('block');
+            }
+
+            // Highlight active button
+            const activeBtn = document.getElementById('tab-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-gray-50', 'text-gray-700', 'border-gray-200');
+                activeBtn.classList.add('bg-brand-green', 'text-white', 'border-brand-green');
+            }
+        }
+
+        // 2. Freight Calculator Mockup
+        function calculateFreight() {
+            const cargo = document.getElementById('cargo-type').value;
+            const dest = document.getElementById('cargo-dest').value;
+            let priceText = "$350 USD / TZS 945,000";
+
+            if (cargo === '40ft') {
+                priceText = dest === 'tz' ? "$550 USD / TZS 1,485,000" : "$850 USD / TZS 2,295,000";
+            } else if (cargo === 'vehicle') {
+                priceText = "$280 USD / TZS 756,000";
+            } else if (cargo === 'lcl') {
+                priceText = "$150 USD / TZS 405,000";
+            }
+
+            document.getElementById('freight-price').innerText = priceText;
+        }
+
+        function sendFreighWhatsApp() {
+            const cargo = document.getElementById('cargo-type').value;
+            const price = document.getElementById('freight-price').innerText;
+            const text = encodeURIComponent(`Habari Guy & Co., I tested the Freight Demo on your website for ${cargo} (${price}). I would like to discuss building a similar clearing site.`);
+            window.open(`https://wa.me/255623534100?text=${text}`, '_blank');
+        }
+
+        // 3. Catalog Inquiry Demo
+        let selectedCatalogCount = 0;
+        function addCatalogItem(itemName, price) {
+            selectedCatalogCount++;
+            document.getElementById('catalog-count').innerText = `${selectedCatalogCount} Item(s) Selected`;
+        }
+
+        function sendCatalogWhatsApp() {
+            const text = encodeURIComponent(`Habari Guy & Co., I tested the Industrial Catalog Demo on your site with ${selectedCatalogCount} items selected. I'd like to build a catalog for my wholesale business.`);
+            window.open(`https://wa.me/255623534100?text=${text}`, '_blank');
+        }
+
+        // 4. Academy Registration Demo
+        function sendAcademyRegistration() {
+            const course = document.getElementById('course-select').value;
+            const text = encodeURIComponent(`Habari Guy & Co., I tested the Driving School Demo for: ${course}. I want to build an online registration portal for my academy.`);
+            window.open(`https://wa.me/255623534100?text=${text}`, '_blank');
+        }
+
+        // 5. Venue WhatsApp Demo
+        function sendVenueWhatsApp() {
+            const event = document.getElementById('venue-event').value;
+            const date = document.getElementById('venue-date').value;
+            const text = encodeURIComponent(`Habari Guy & Co., I tested the Venue Demo for a ${event} on ${date}. Let's discuss building a booking site for my venue.`);
+            window.open(`https://wa.me/255623534100?text=${text}`, '_blank');
+        }
+
+        // 6. Scope & Estimator Recalculation
+        function recalculateEstimate() {
+            const portal = document.getElementById('feat-portal').checked;
+            const catalog = document.getElementById('feat-catalog').checked;
+            const timeElem = document.getElementById('est-time');
+
+            if (portal) {
+                timeElem.innerText = "10 to 14 Business Days";
+            } else if (catalog) {
+                timeElem.innerText = "6 to 8 Business Days";
+            } else {
+                timeElem.innerText = "4 to 6 Business Days";
+            }
+        }
+
+        function sendEstimateWhatsApp() {
+            const ind = document.getElementById('est-industry').value;
+            const time = document.getElementById('est-time').innerText;
+            const text = encodeURIComponent(`Habari Guy & Co., I calculated a project scope on your website for a [${ind}] project with estimated delivery of [${time}]. I would like to get an official quote.`);
+            window.open(`https://wa.me/255623534100?text=${text}`, '_blank');
+        }
+    </script>
+</body>
+</html>
